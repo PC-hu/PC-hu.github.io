@@ -20,7 +20,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
         }
       });
     });
-    console.log(1);
+//     console.log(1);
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
 
@@ -57,12 +57,11 @@ HTMLActuator.prototype.addTile = function (tile) {
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
     window.requestAnimationFrame(function () {
-      console.log(tile.x, tile.y, tile.value);
-      
+//       console.log(tile.x, tile.y, tile.value);
+      classes[2] = self.positionClass({ x: tile.x, y: tile.y });
+      self.applyClasses(element, classes);
        // Update the position
     });
-    classes[2] = self.positionClass({ x: tile.x, y: tile.y });
-    self.applyClasses(element, classes);
     // (function () {
     //   console.log(tile.x, tile.y, tile.value);
     //   classes[2] = self.positionClass({ x: tile.x, y: tile.y });
