@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>codeRoot's JavaScript</title> 
+
+<script type="text/javascript">
+	var pos = 0;
+	function disableBeforeClickBlank(){
+		var element   = document.createElement("div");
+		pos+=100;
+		document.querySelector(".my").appendChild(element);
+		// var element = document.getElementById("my");
+		element.setAttribute("class", "tile");
+		element.setAttribute("style", "left:0px");
+		element.textContent = 'text';
+		window.requestAnimationFrame(function () {
+		  element.setAttribute("style", `left:${pos}px`);
+		});
+	}
+</script>
+
+<style type="text/css">
+.tile {
+	position: absolute;
+	left: 0px;
+	background: #eee4da;
+	text-align: center;
+	font-weight: bold;
+	font-size: 55px;
+	transition: 1000ms ease-in-out;
+</style>
+</head>
+<body>
+	<p><strong>先单击空白</strong>的地方后，<strong>再点击提交</strong>才会有动画</p>
+	<p><strong>刷新</strong>页面，不要点击空白地方，<strong>直接</strong>点击<strong>提交</strong>，不会有动画</p>
+	<p>代码只有40行，求解答！</p>
+	<input type="submit" onclick="disableBeforeClickBlank()">
+	<div class="my"></div>
+</body>
+</html>
